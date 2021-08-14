@@ -1,5 +1,5 @@
 # monster-searcher
-
+This is a simple project just to practice some Vue, Vuetify and CSS in general
 ## Project setup
 ```
 npm install
