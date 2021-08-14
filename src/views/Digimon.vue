@@ -58,16 +58,21 @@ export default {
     searchDigimon: _.debounce(async function () {
       this.digimon = null;
       this.isLoading = true;
-      console.log("tosearch: ", this.digimonName);
       if (!!this.digimonName && this.digimonName.length > 0) {
-        let arr = await this.$API.digimon.getDigimon(
-          this.digimonName.toLowerCase()
-        );
-        if(arr){
-            this.digimon = arr[0];
-        }
+        this.$API.digimon
+          .getDigimon(this.digimonName.toLowerCase())
+          .then((response) => {
+            console.log(response);
+            let arr = response;
+            if (arr) {
+              this.digimon = arr[0];
+              console.log(this.digimon)
+            }
+          })
+          .catch((err) => {
+            console.warn(err);
+          });
       }
-      console.log(this.digimon);
       this.isLoading = false;
     }, 1000),
   },
