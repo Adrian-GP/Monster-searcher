@@ -9,11 +9,13 @@
             contain
             :src="
               $vuetify.theme.dark
-                ? require('./assets/digivice.png')
+                ? require('./assets/bdigivice.png')
                 : 'https://upload.wikimedia.org/wikipedia/commons/5/51/Pokebola-pokeball-png-0.png'
             "
             transition="scale-transition"
-            width="40"
+            :width="$vuetify.theme.dark
+                ? 60
+                : 50"
           />
 
           <span class=""
