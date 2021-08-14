@@ -6,7 +6,8 @@
       dark
     >
       <div class="d-flex align-center">
-        <v-img
+        <router-link to="/" class="main-logo-route">
+          <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
@@ -15,26 +16,26 @@
           width="40"
         />
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <span class="">Pokemon Searcher</span>
+        </router-link>
       </div>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
+      <router-link to="/pokemon">
+        <v-btn
         text
       >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+        <span class="mr-2">Go to Pokemon</span>
       </v-btn>
+      </router-link>
+      <router-link to="digimon">
+        <v-btn
+        text
+      >
+        <span class="mr-2">Go to Digimon</span>
+      </v-btn>
+      </router-link>
     </v-app-bar>
 
     <v-main>
@@ -53,3 +54,13 @@ export default {
   }),
 };
 </script>
+<style scoped>
+.main-logo-route{
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+</style>

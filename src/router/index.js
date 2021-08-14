@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-
+import Pokemon from '../views/Pokemon.vue'
+import Digimon from '../views/Digimon.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -9,6 +10,16 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/pokemon',
+    name: 'Pokemon',
+    component: Pokemon
+  },
+  {
+    path: '/digimon',
+    name: 'Digimon',
+    component: Digimon
   },
   {
     path: '/about',
