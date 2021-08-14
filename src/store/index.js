@@ -11,8 +11,6 @@ export default new Vuex.Store({
     text: null,
     color: null,
     alert: false,
-
-
   },
   getters: {
     isAuthenticated: state => !!state.token,

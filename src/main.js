@@ -7,7 +7,9 @@ import axios from 'axios'
 import _ from 'lodash'
 import Pokemon from './api/pokemon.js'
 import Digimon from './api/digimon.js'
+import interceptorsSetup from './api/helpers/interceptor'
 
+interceptorsSetup()
 Vue.prototype.$API = {
   pokemon: Pokemon(Vue),
   digimon: Digimon(Vue)
