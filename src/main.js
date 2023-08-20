@@ -6,18 +6,21 @@ import vuetify from './plugins/vuetify'
 import axios from 'axios'
 import _ from 'lodash'
 import Pokemon from './api/pokemon.js'
+import PokemonClass from './api/pokemonclass.js'
 import Digimon from './api/digimon.js'
 import interceptorsSetup from './api/helpers/interceptor'
 
-interceptorsSetup()
-Vue.prototype.$API = {
-  pokemon: Pokemon(Vue),
-  digimon: Digimon(Vue)
-}
+
 Vue.prototype.$http = axios
 Vue.prototype.$_ = _
 Vue.config.productionTip = false
 
+interceptorsSetup()
+Vue.prototype.$API = {
+  pokemon: Pokemon(Vue),
+  digimon: Digimon(Vue),
+  pokemonclass: new PokemonClass(Vue)
+}
 new Vue({
   router,
   store,

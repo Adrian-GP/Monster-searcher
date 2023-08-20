@@ -12,7 +12,7 @@
           outlined
           label="Write the pokemon to search"
           v-model="pokemonName"
-          @keydown="searchPokemon"
+          @keydown="searchPokemonClass"
         >
         </v-text-field>
       </v-col>
@@ -58,6 +58,27 @@ export default {
       this.isLoading = true;
       if (this.pokemonName.length > 0) {
          this.$API.pokemon
+          .getPokemon(this.pokemonName.toLowerCase())
+          .then((response) => {
+            console.log(response);
+            this.pokemon = response
+          })
+          .catch((err) => {
+            console.warn(err);
+            this.$store.commit("show_alert", {
+              color: "error",
+              text: "Pokemon not found",
+            });
+          });
+      }
+      console.log(this.pokemon);
+      this.isLoading = false;
+    }, 1000),
+    searchPokemonClass: _.debounce(async function () {
+      this.pokemon = null;
+      this.isLoading = true;
+      if (this.pokemonName.length > 0) {
+         this.$API.pokemonclass
           .getPokemon(this.pokemonName.toLowerCase())
           .then((response) => {
             console.log(response);
